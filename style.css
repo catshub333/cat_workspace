@@ -49,6 +49,16 @@ button {
 button:hover {
     background-color: #39cba3;
 }
+
+/* Group buttons in comment inbox */
+.comment-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+.comment-controls button {
+    flex: 1;
+}
 ul {
     list-style: none;
     padding-left: 0;

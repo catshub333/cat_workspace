@@ -30,7 +30,10 @@
 <section id="comment-inbox">
     <h2>Comments / Instructions</h2>
     <textarea id="comment-input" placeholder="Leave your instructions here"></textarea>
-    <button onclick="saveComment()">Save</button>
+    <div class="comment-controls">
+        <button onclick="saveComment()">Save</button>
+        <button onclick="startDictation()" title="Voice input">🎤</button>
+    </div>
     <div id="comments"></div>
 </section>
 <script src="script.js"></script>

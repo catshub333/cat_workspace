@@ -43,4 +43,28 @@ function saveComment() {
     }
 }
 
+// Voice input using Web Speech API
+function startDictation() {
+    // Check for browser support
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+        alert('Speech recognition is not supported in this browser.');
+        return;
+    }
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        const textarea = document.getElementById('comment-input');
+        // Append recognized text to current value with a space if necessary
+        textarea.value = textarea.value ? textarea.value + ' ' + transcript : transcript;
+    };
+    recognition.onerror = function(event) {
+        console.error('Speech recognition error', event.error);
+    };
+    recognition.start();
+}
+
 document.addEventListener('DOMContentLoaded', loadTasks);
