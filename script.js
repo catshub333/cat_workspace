@@ -17,6 +17,18 @@ function loadTasks() {
         p.textContent = text;
         commentsDiv.appendChild(p);
     });
+
+    // Load conversation logs if a conversation panel exists.
+    const convoPanel = document.getElementById('conversation-log');
+    if (convoPanel) {
+        const convo = JSON.parse(localStorage.getItem('conversation-log') || '[]');
+        convoPanel.innerHTML = '';
+        convo.forEach(entry => {
+            const p = document.createElement('p');
+            p.textContent = entry;
+            convoPanel.appendChild(p);
+        });
+    }
 }
 
 function addTask(type) {
@@ -58,7 +70,6 @@ function startDictation() {
     recognition.onresult = function(event) {
         const transcript = event.results[0][0].transcript;
         const textarea = document.getElementById('comment-input');
-        // Append recognized text to current value with a space if necessary
         textarea.value = textarea.value ? textarea.value + ' ' + transcript : transcript;
     };
     recognition.onerror = function(event) {
