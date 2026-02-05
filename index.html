@@ -26,13 +26,20 @@
         <input type="text" id="diet-input" placeholder="Add a diet task">
         <button onclick="addTask('diet')">Add</button>
     </section>
+
+    <!-- Conversation log panel shows a running log of past session summaries or transcripts.  
+         Currently it reads from localStorage (key: 'conversation-log') for demonstration. -->
+    <section id="conversation-panel" style="width: 100%;">
+        <h2>Conversation Log</h2>
+        <div id="conversation-log" style="max-height: 200px; overflow-y: auto;"></div>
+    </section>
 </div>
 <section id="comment-inbox">
     <h2>Comments / Instructions</h2>
     <textarea id="comment-input" placeholder="Leave your instructions here"></textarea>
     <div class="comment-controls">
         <button onclick="saveComment()">Save</button>
-        <button onclick="startDictation()" title="Voice input">🎤</button>
+        <button onclick="startDictation()" title="Voice input">🎙</button>
     </div>
     <div id="comments"></div>
 </section>
