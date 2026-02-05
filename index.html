@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cat Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Cat Dashboard</h1>
+<div id="dashboard">
+    <section id="general-todo">
+        <h2>General To-Do</h2>
+        <ul id="general-list"></ul>
+        <input type="text" id="general-input" placeholder="Add a task">
+        <button onclick="addTask('general')">Add</button>
+    </section>
+    <section id="workout-todo">
+        <h2>Workout To-Do</h2>
+        <ul id="workout-list"></ul>
+        <input type="text" id="workout-input" placeholder="Add a workout task">
+        <button onclick="addTask('workout')">Add</button>
+    </section>
+    <section id="diet-todo">
+        <h2>Diet To-Do</h2>
+        <ul id="diet-list"></ul>
+        <input type="text" id="diet-input" placeholder="Add a diet task">
+        <button onclick="addTask('diet')">Add</button>
+    </section>
+</div>
+<section id="comment-inbox">
+    <h2>Comments / Instructions</h2>
+    <textarea id="comment-input" placeholder="Leave your instructions here"></textarea>
+    <button onclick="saveComment()">Save</button>
+    <div id="comments"></div>
+</section>
+<script src="script.js"></script>
+</body>
+</html>
